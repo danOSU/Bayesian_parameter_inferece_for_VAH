@@ -14,7 +14,7 @@ The **active learning** sequential design scripts can be found in `Surmise_desig
 
 The model parameter values are in `design_data` and corresponding simulation data is in `simulation_data`. The map between the two can be found in `simulation_data/map_sim_to_design`
 
-The VAH emulators are avilable online via the [VAH gadget](https://github.com/danOSU/visualization_vah). 
+The VAH emulators are avilable online via the [VAH gadget](https://danosu-visualization-vah-streamlit-widget-wq49dw.streamlit.app/). 
 
 If you want to run the VAH simulation using singularity in a cluster and generate your own simulation data for relativistic heavy ion collisions look at the [vah_argonne repo](https://github.com/danOSU/vah_argonne/tree/main).
 
