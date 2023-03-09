@@ -1,4 +1,4 @@
-This repo contains the codes used for the project [Bayesian calibration of viscous anisotropic hydrodynamic simulations of heavy-ion collisions](https://arxiv.org/abs/2302.14184]). 
+This repo contains python codes used for the project [Bayesian calibration of viscous anisotropic hydrodynamic simulations of heavy-ion collisions](https://arxiv.org/abs/2302.14184]). 
 
 The plots in the paper have been generated using the notebook `emulation_and_calibration/Analysis and plotting after calibration.ipynb`
 
