@@ -9,7 +9,7 @@ import numpy as np
 import seaborn as sns
 import pandas as pd
 import matplotlib.pyplot as plt
-from sympy import rem
+#from sympy import rem
 from load import simulation
 from plotting import zeta_over_s, eta_over_s, transform_design
 
