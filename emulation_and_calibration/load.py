@@ -23,19 +23,31 @@ class simulation:
         taking into account the allowed failure percentage of events per design.
 
     """
-    def __init__(self, sim_path, sd_path, des_path, neve_path):
+    def __init__(self,file):
         """
         Construct simulation data object.
 
         Parametrs
         ---------
-        sim_name : str
-            path to the simulation output
-        des_path : str
-            path to the corresponding design file
-        neve_path : str
-            path to the corresponding number of events file
+        file : str
+        name of the main simulation output observables file
+
         """
+        # gather all design file info to maps_sim_design
+        maps_sim_design = {}
+        with open('../simulation_data/map_sim_to_design') as f:
+            for l in f:
+                l = l.split('\n')[0]
+                maps_sim_design[l.split(' ')[1]]=l.split(' ')[2]
+        #path to the simulation error output
+        sim_path = f'../simulation_data/{file}'
+        #path to the simulation error output
+        sd_path = '../simulation_data/'+'sd'+file.split('mean')[-1]
+        #path to the corresponding design file
+        des_path = f'../design_data/{maps_sim_design[file]}'
+        #path to the corresponding number of events file
+        neve_path = f'../simulation_data/nevents_design/{file}_neve.txt'
+
         self.obs = pd.read_csv(sim_path, index_col=0)
         self.obs_sd = pd.read_csv(sd_path, index_col=0)
         self.design = pd.read_csv(des_path, delimiter = ' ')
