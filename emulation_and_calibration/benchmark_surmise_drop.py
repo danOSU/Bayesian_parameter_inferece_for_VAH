@@ -17,8 +17,8 @@ import pyximport
 pyximport.install(setup_args={"include_dirs":np.get_include()},
                   reload_support=True)
 
-os.chdir('/Users/dananjayaliyanage/git/analyze_vah/emulation')
-sys.path.append('/Users/dananjayaliyanage/git/surmise/')
+os.chdir('/Users/dananjayaliyanage/jail/Bayesian_parameter_inferece_for_VAH/emulation_and_calibration')
+sys.path.append('/Users/dananjayaliyanage/jail/Bayesian_parameter_inferece_for_VAH/surmise')
 
 from split_data import generate_split_data
 from surmise.emulation import emulator
@@ -105,7 +105,7 @@ x_np = x_np.astype('object')
 ##########################################################
 # Note: Pick method_name = 'PCGPwM' or 'PCGPR' or 'PCSK'
 ##########################################################
-method_name = 'PCGPR_with_flow'
+method_name = 'PCSK'
 is_train = True
 emu_path = 'VAH_' + method_name + '.pkl' 
 
@@ -141,7 +141,6 @@ else:
                           theta=theta_train,
                           f=f_train.T,
                           method='PCSK',
-                          transform=transform_design,
                           args={'numpcs': 12, # this does not mean full errors
                                 'simsd': np.absolute(sd_train.T),
                                 'verbose':1})
@@ -167,7 +166,7 @@ pred_test_mean = pred_test.mean()
 pred_test_var = pred_test.var()
 
 # Plotting diagnostics
-plot_UQ(f_test, pred_test_mean.T, np.sqrt(pred_test_var.T), method=method_name, drop=drop_obs_group)
+#plot_UQ(f_test, pred_test_mean.T, np.sqrt(pred_test_var.T), method=method_name, drop=drop_obs_group)
 plot_R2(pred_test_mean, f_test.T, method=method_name, drop=drop_obs_group)
 
 seconds_end = time.time()
